@@ -2,13 +2,38 @@
   "todos": [
     {
       "id": "0",
-      "title": "Написать новый компонент",
+      "title": "Написать новый компонент 22",
+      "completed": true
+    },
+    {
+      "id": "40db",
+      "title": "Новое дело",
       "completed": false
     },
     {
-      "id": "1",
-      "title": "Hello everybody I`m Lara!",
-      "completed": true
+      "id": "4c04",
+      "title": "Дублёр",
+      "completed": false
+    },
+    {
+      "id": "6a9f",
+      "title": "Муляж",
+      "completed": false
+    },
+    {
+      "id": "8e8f",
+      "title": "А",
+      "completed": false
+    },
+    {
+      "id": "b38d",
+      "title": "В",
+      "completed": false
+    },
+    {
+      "id": "7d5c",
+      "title": "Б",
+      "completed": false
     }
   ]
 }

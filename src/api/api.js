@@ -1,14 +1,28 @@
-const fetchServer = (method = 'GET', { id, ...payload } = {}) => {
+import { HTTP_METHOD } from '../constants';
+
+const fetchServer = (method, { id, ...payload } = {}) => {
 	let fetchURL = 'http://localhost:3005/todos';
 
 	let options = {
 		method,
-		headers: { 'Content-Type': 'applucation/json' },
+		headers: { 'Content-Type': 'application/json' },
 	};
 
-	if (id !== undefined) {
-		fetchURL += `/${id}`;
-		options.body = JSON.stringify(payload);
+	if (method === HTTP_METHOD.GET) {
+		const { searchPhrase, isAlphabetSorting } = payload;
+		const sortingParams = isAlphabetSorting
+			? '_sort=title&_order=asc'
+			: '_sort=id&_order=desc';
+
+		fetchURL += `?${sortingParams}&title_like=${searchPhrase}`;
+	} else {
+		if (method !== HTTP_METHOD.POST) {
+			fetchURL += `/${id}`;
+		}
+
+		if (method !== HTTP_METHOD.DELETE) {
+			options.body = JSON.stringify(payload);
+		}
 	}
 
 	return fetch(fetchURL, options).then((jsonData) => jsonData.json());
@@ -16,7 +30,8 @@ const fetchServer = (method = 'GET', { id, ...payload } = {}) => {
 
 export const createTodo = (newTodo) => fetchServer('POST', newTodo);
 
-export const readTodos = () => fetchServer();
+export const readTodos = (searchPhrase = '', isAlphabetSorting = false) =>
+	fetchServer('GET', { searchPhrase, isAlphabetSorting });
 
 export const updateTodo = (todoData) => fetchServer('PATCH', todoData);
 
