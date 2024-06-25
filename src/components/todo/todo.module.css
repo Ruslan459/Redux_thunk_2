@@ -6,3 +6,7 @@
 .title {
 	width: 100%;
 }
+
+.title input {
+	width: 95%;
+}

@@ -6,33 +6,23 @@
       "completed": true
     },
     {
-      "id": "40db",
-      "title": "Новое дело",
-      "completed": false
-    },
-    {
-      "id": "4c04",
-      "title": "Дублёр",
-      "completed": false
-    },
-    {
       "id": "6a9f",
       "title": "Муляж",
-      "completed": false
+      "completed": true
     },
     {
       "id": "8e8f",
       "title": "А",
+      "completed": true
+    },
+    {
+      "id": "24f6",
+      "title": "ББББ",
       "completed": false
     },
     {
-      "id": "b38d",
-      "title": "В",
-      "completed": false
-    },
-    {
-      "id": "7d5c",
-      "title": "Б",
+      "id": "ef39",
+      "title": "Дело 33",
       "completed": false
     }
   ]
