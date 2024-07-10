@@ -1,21 +1,25 @@
+import { useDispatch } from 'react-redux';
 import { NEW_TODO_ID } from '../../constants';
-import { useStateManager } from '../../state-manager';
+import { ACTION_TYPE } from '../../actions';
 import { Button } from '../button/button';
 import { Search, Sorting } from './components';
 import styles from './control-panel.module.css';
 
 export const ControlPanel = () => {
-	const { updateState } = useStateManager();
+	const dispatch = useDispatch();
 	const onTodoAdd = () => {
-		updateState({
-			todos: [
-				{
-					id: NEW_TODO_ID,
-					title: '',
-					completed: false,
-				},
-			],
-			editingTodo: {
+		dispatch({
+			type: ACTION_TYPE.ADD_TODO,
+			payload: {
+				id: NEW_TODO_ID,
+				title: '',
+				completed: false,
+			},
+		});
+
+		dispatch({
+			type: ACTION_TYPE.EDIT_TODO,
+			payload: {
 				id: NEW_TODO_ID,
 				title: '',
 			},

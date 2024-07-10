@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { App, initialState } from './app';
-import { StateManager } from './state-manager';
+import { Provider } from 'react-redux';
+import { App } from './app';
+import { store } from './store';
 import './index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<React.StrictMode>
-		<StateManager initialState={initialState}>
+		<Provider store={store}>
 			<App />
-		</StateManager>
+		</Provider>
 	</React.StrictMode>,
 );
